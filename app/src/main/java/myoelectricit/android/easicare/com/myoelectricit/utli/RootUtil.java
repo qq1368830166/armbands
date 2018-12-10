@@ -160,7 +160,7 @@ public class RootUtil {
     public static int synNum = 0;
     public static int preNum = 0;
     public static String preheat = "";
-    public static int preSucNum = 0;//
+    public static int preSucNum = 0;
     private static void abc(List<Byte> dataList) {
         byte[] recvData = new byte[dataList.size()];
         for (int i = 0; i < dataList.size(); i++) {
