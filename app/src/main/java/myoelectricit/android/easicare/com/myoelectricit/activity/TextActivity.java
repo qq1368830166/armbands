@@ -28,7 +28,7 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-
+//
     }
 
     private void initView() {
