@@ -28,12 +28,7 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        BLEBraceletUtlis.SendbleData(BLEBraceletUtlis.getRecognitionData(), new OnSendDataInterface() {
-            @Override
-            public void onSendData(byte[] data) {
 
-            }
-        });
     }
 
     private void initView() {
