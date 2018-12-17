@@ -1,5 +1,6 @@
 package myoelectricit.android.easicare.com.myoelectricit.utli;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.Timer;
@@ -115,18 +116,18 @@ public   class BLEBraceletUtlis {
     }
 
     private static boolean isReax=false;   //判断是否是放松手势
-    public static void IsGesture(){
+    public static void IsGesture(final String broadname, final Context context){
         // TODO: 2018/11/26 非常重要的判断 以 放松手势 为过渡判断手势
         RootUtil.setOnCallReaxInterface(new OnCallReaxInterface() {
             @Override
             public void onReaxData(String reax) {
                 if (isReax){
-                    RootUtil.sendbroad(reax);
-                    Log.e("ABCC",reax);
+                    RootUtil.sendbroad(reax,broadname,context);
+                    LogUtil.e("ABCC",reax);
                     isReax=false;
                 }else {
                     if (reax.equals("放松手势")||reax.equals("握拳手势")) {
-                        Log.e("ABCB", "当前模式" + reax);
+                        LogUtil.e("ABCB", "当前模式" + reax);
                         isReax = true;
                     }
                 }

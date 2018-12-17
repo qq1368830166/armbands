@@ -1,12 +1,12 @@
 package myoelectricit.android.easicare.com.myoelectricit.utli;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import myoelectricit.android.easicare.com.myoelectricit.app.MyApplication;
 import myoelectricit.android.easicare.com.myoelectricit.interfaces.OnCallReaxInterface;
 import myoelectricit.android.easicare.com.myoelectricit.interfaces.OnSynchronizationInterface;
 /**
@@ -97,21 +97,19 @@ public class RootUtil {
      *   广播发送手势到对应的应用
      * @param data      当前手势
      */
-    public static void sendbroad(String data) {
-        SPUtils spUtils=new SPUtils(MyApplication.context,"ACT");
+    public static void sendbroad(String data, String broadname, Context context) {
 
         onSynchronizationInterface.onsynchronizationdata(data);
-        String broadcastIntent = spUtils.getString("action","测试");//自己自定义
 
-        if (broadcastIntent!=""){
-                    if (data.equals("放松手势")){}
-              else{
-                    Intent intent = new Intent(broadcastIntent);
-                    intent.putExtra("key", data);
-                    Log.e("ABCC",data);
-                    MyApplication.context.sendBroadcast(intent);
-                   }
-              }
+        if (broadname!=""){
+            if (data.equals("放松手势")){}
+            else{
+                Intent intent = new Intent(broadname);
+                intent.putExtra("key", data);
+                LogUtil.e("ABCC",data);
+                context.sendBroadcast(intent);
+            }
+        }
     }
 
     //接口回调 以判断的手势操作  显示到页面
