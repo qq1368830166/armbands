@@ -113,7 +113,7 @@ public   class BLEBraceletUtlis {
             return         RootUtil.power;
 
         return null;
-    }//
+    }
 
     private static boolean isReax=false;   //判断是否是放松手势
     public static void IsGesture(final String broadname, final Context context){
